@@ -37,5 +37,5 @@ rm /change-password.*
 #trap 
 while [ "$END" == '' ]; do
 			sleep 60
-			trap "/etc/init.d/sybase stop && END=1" INT TERM
+			trap "END=1" INT TERM
 done
