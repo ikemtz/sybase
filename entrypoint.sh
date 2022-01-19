@@ -9,7 +9,7 @@ sh /opt/sap/SYBASE.sh \
 export STATUS=0
 i=1
 echo ===============  WAITING FOR master.dat SPACE ALLOCATION ==========================
-while (( $i < 30 )); do
+while (( $i < 15 )); do
 	sleep 1
 	i=$((i+1))
 	STATUS=$(grep "Performing space allocation for device '/opt/sap/data/master.dat'" /opt/sap/ASE-16_0/install/LMSYBASE.log | wc -c)
@@ -21,7 +21,7 @@ done
 echo ===============  WAITING FOR INITIALIZATION ==========================
 export STATUS2=0
 j=1
-while (( $j < 30 )); do
+while (( $j < 15 )); do
   sleep 1
   j=$((j+1))
   STATUS2=$(grep "Finished initialization." /opt/sap/ASE-16_0/install/LMSYBASE.log | wc -c)
