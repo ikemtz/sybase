@@ -33,6 +33,7 @@ done
 isql -U sa -P iH@t3Syb@s3 -S LMSYBASE -i "/change-password.sql"
 
 rm /change-password.*
+export SA_PASSWORD="**************"
 
 #trap 
 while [ "$END" == '' ]; do
