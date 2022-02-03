@@ -18,8 +18,8 @@ USER_INSTALL_DIR=/opt/sap
 
 #Choose Install Set
 #------------------
-CHOSEN_FEATURE_LIST=fase_srv,fase_amc,fdbisql
-CHOSEN_INSTALL_FEATURE_LIST=fase_srv,fase_amc,fdbisql
+CHOSEN_FEATURE_LIST=fase_srv,fdbisql
+CHOSEN_INSTALL_FEATURE_LIST=fase_srv,fdbisql
 CHOSEN_INSTALL_SET=Custom
 
 #Choose Product License Type
@@ -86,8 +86,8 @@ SY_CFG_ASE_OPT_ENABLE=false
 SY_CFG_ASE_CPU_NUMBER=$NULL$
 SY_CFG_ASE_MEMORY=$NULL$
 SY_CFG_ASE_LANG=us_english
-SY_CFG_ASE_CHARSET=cp437
-SY_CFG_ASE_SORTORDER=bin_cp437
+SY_CFG_ASE_CHARSET=iso_1
+SY_CFG_ASE_SORTORDER=bin_iso_1
 SY_CFG_ASE_SAMPLE_DB=false
 
 #Configure New Backup Server

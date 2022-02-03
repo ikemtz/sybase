@@ -3,7 +3,7 @@ WORKDIR /install
 COPY *.tgz .
 RUN tar -xvf ./ASE_Suite.linuxamd64.tgz
 
-FROM registry1.dso.mil/ironbank/redhat/ubi/ubi8:8.5
+FROM registry1.dso.mil/ironbank/redhat/ubi/ubi8:8.5-fips
 WORKDIR /install
 COPY --from=decompressor /install/ebf29704 .
 RUN mkdir /opt/sap
@@ -31,6 +31,8 @@ RUN rm -rf /install \
   && yum clean all \
   && sed -i 's/enable console logging = DEFAULT/enable console logging = 1/g' /opt/sap/ASE-16_0/LMSYBASE.cfg \
   && sed -i 's/enable encrypted columns = DEFAULT/enable encrypted columns = 1/g' /opt/sap/ASE-16_0/LMSYBASE.cfg \
+  && sed -i 's/FIPS login password encryption = DEFAULT/FIPS login password encryption = 1/g' /opt/sap/ASE-16_0/LMSYBASE.cfg \
+  && sed -i 's/automatic master key access = DEFAULT/automatic master key access = 1/g' /opt/sap/ASE-16_0/LMSYBASE.cfg \
   && sed -i 's/master tcp ether localhost 5000/master tcp ether 0.0.0.0 5000/g' /opt/sap/interfaces \
   && sed -i 's/query tcp ether localhost 5000/query tcp ether 127.0.0.1 5000/g' /opt/sap/interfaces \
   && chmod -R g+rwX /opt/sap \

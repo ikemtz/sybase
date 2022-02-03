@@ -1,0 +1,1 @@
+docker run --rm -v /C/Repos/sybase/.cache:/root/.cache/ aquasec/trivy ikemtz/sybase:latest
